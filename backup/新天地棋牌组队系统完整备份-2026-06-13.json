@@ -1,0 +1,205 @@
+{
+  "customers": [
+    {
+      "id": "71897689-af2e-4ad7-9768-121e32161a73",
+      "createdAt": "2026-06-12T15:38:34.722Z",
+      "name": "奥斯卡",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "a715b1f3-929f-41bc-8700-a8f72978502f",
+      "createdAt": "2026-06-12T15:38:41.386Z",
+      "name": "huihui",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "0198f1cc-9c1a-480b-b1d3-4e6d1b939343",
+      "createdAt": "2026-06-12T15:39:10.202Z",
+      "name": "奇奇",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+      "createdAt": "2026-06-13T02:20:10.583Z",
+      "name": "欧欧",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": [
+        "7e330c84-0643-44f3-ab48-a0f8ffd0bc73",
+        "2111331a-d6fc-44fe-8ab2-c6796262e12f"
+      ]
+    },
+    {
+      "id": "7e330c84-0643-44f3-ab48-a0f8ffd0bc73",
+      "createdAt": "2026-06-13T02:20:23.098Z",
+      "name": "小麦",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": [
+        "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+        "2111331a-d6fc-44fe-8ab2-c6796262e12f"
+      ]
+    },
+    {
+      "id": "c602c44d-1d70-4883-96c5-754f7ba55de9",
+      "createdAt": "2026-06-13T02:20:31.585Z",
+      "name": "雾霾",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "afa05a0e-5df0-48b9-9779-ac5bca0732e6",
+      "createdAt": "2026-06-13T02:20:43.348Z",
+      "name": "女毛毛",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "2111331a-d6fc-44fe-8ab2-c6796262e12f",
+      "createdAt": "2026-06-13T02:20:57.248Z",
+      "name": "欧欧老公",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": [
+        "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+        "7e330c84-0643-44f3-ab48-a0f8ffd0bc73"
+      ]
+    },
+    {
+      "id": "7f2eef2b-a372-4416-8910-baaedf744557",
+      "createdAt": "2026-06-13T02:21:02.748Z",
+      "name": "大可爱",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "69b3ec97-5288-4b4b-9f09-512cbc299aac",
+      "createdAt": "2026-06-13T02:21:30.665Z",
+      "name": "哈里斯",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "f0cb384a-5973-4cb8-a9f0-6b0d4f98a23e",
+      "createdAt": "2026-06-13T02:33:21.695Z",
+      "name": "飞飞",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "d1537da0-04c8-4cff-a4fa-ba5a1d7b1dd4",
+      "createdAt": "2026-06-13T07:03:26.818Z",
+      "name": "英文老师",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "0e1e9d97-b708-4fe2-8325-f4aa7054da94",
+      "createdAt": "2026-06-13T07:41:39.444Z",
+      "name": "99",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    }
+  ],
+  "fields": [
+    "牌技",
+    "常来时段",
+    "备注标签"
+  ],
+  "signups": {
+    "2026-06-12": [],
+    "2026-06-13": []
+  },
+  "registrations": []
+}

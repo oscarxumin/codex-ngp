@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef8ff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5bc8ff"/>
+      <stop offset="1" stop-color="#1597df"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1298dc" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="44" y="36" width="1192" height="150" rx="34" fill="#ffffff" stroke="#dceef8"/>
+  <circle cx="124" cy="111" r="48" fill="#ffffff" stroke="#bde8fb" stroke-width="4"/>
+  <text x="95" y="118" font-size="34" font-family="Arial" font-weight="800" fill="#1597df">牌</text>
+  <text x="194" y="92" font-size="30" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="800" fill="#1298dc">新天地棋牌会所</text>
+  <text x="194" y="137" font-size="48" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#142033">新天地棋牌组队系统</text>
+  <text x="194" y="168" font-size="20" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="700" fill="#6b7c86">客户总库、每日报名、四人组队、消费登记</text>
+
+  <text x="52" y="245" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#142033">方案 A：天蓝软糖风</text>
+  <text x="52" y="282" font-size="18" font-family="Microsoft YaHei, PingFang SC, Arial" fill="#6b7c86">圆润胶囊按钮，天蓝渐变，柔软阴影，整体清爽可爱。</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="52" y="325" width="250" height="76" rx="30" fill="url(#blue)"/>
+    <text x="177" y="373" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#ffffff">客户总库</text>
+  </g>
+  <rect x="330" y="325" width="270" height="76" rx="30" fill="#f6fcff" stroke="#a6def7" stroke-width="3"/>
+  <text x="465" y="373" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#147fbd">今日报名名单</text>
+  <rect x="628" y="325" width="220" height="76" rx="30" fill="#f6fcff" stroke="#a6def7" stroke-width="3"/>
+  <text x="738" y="373" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#147fbd">自动组队</text>
+  <rect x="876" y="325" width="290" height="76" rx="30" fill="#f6fcff" stroke="#a6def7" stroke-width="3"/>
+  <text x="1021" y="373" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#147fbd">每日客户登记</text>
+
+  <rect x="52" y="455" width="440" height="74" rx="24" fill="#ffffff" stroke="#cae8f6" stroke-width="3"/>
+  <text x="82" y="502" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="800" fill="#9badb8">搜索姓名、电话、属性</text>
+  <g filter="url(#softShadow)">
+    <rect x="520" y="455" width="280" height="74" rx="26" fill="#000000"/>
+    <text x="660" y="502" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#ffffff">加入当天报名名单</text>
+  </g>
+  <rect x="828" y="455" width="180" height="74" rx="26" fill="url(#blue)"/>
+  <text x="918" y="502" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#ffffff">新增客户</text>
+  <rect x="1036" y="455" width="180" height="74" rx="26" fill="#ffffff" stroke="#d3e8f2" stroke-width="3"/>
+  <text x="1126" y="502" text-anchor="middle" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#1f3848">编辑客户</text>
+
+  <rect x="52" y="575" width="1164" height="86" rx="28" fill="#ffffff" stroke="#dceef8"/>
+  <circle cx="96" cy="618" r="14" fill="#33b5f2"/>
+  <text x="130" y="628" font-size="26" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="800" fill="#172333">客户行示例：圆润、明亮、轻快，适合蓝色品牌视觉。</text>
+</svg>

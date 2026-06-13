@@ -1,0 +1,325 @@
+{
+  "customers": [
+    {
+      "id": "71897689-af2e-4ad7-9768-121e32161a73",
+      "createdAt": "2026-06-12T15:38:34.722Z",
+      "name": "奥斯卡",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "a715b1f3-929f-41bc-8700-a8f72978502f",
+      "createdAt": "2026-06-12T15:38:41.386Z",
+      "name": "huihui",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "0198f1cc-9c1a-480b-b1d3-4e6d1b939343",
+      "createdAt": "2026-06-12T15:39:10.202Z",
+      "name": "奇奇",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+      "createdAt": "2026-06-13T02:20:10.583Z",
+      "name": "欧欧",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": [
+        "7e330c84-0643-44f3-ab48-a0f8ffd0bc73",
+        "2111331a-d6fc-44fe-8ab2-c6796262e12f"
+      ]
+    },
+    {
+      "id": "7e330c84-0643-44f3-ab48-a0f8ffd0bc73",
+      "createdAt": "2026-06-13T02:20:23.098Z",
+      "name": "小麦",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": [
+        "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+        "2111331a-d6fc-44fe-8ab2-c6796262e12f"
+      ]
+    },
+    {
+      "id": "c602c44d-1d70-4883-96c5-754f7ba55de9",
+      "createdAt": "2026-06-13T02:20:31.585Z",
+      "name": "雾霾",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "afa05a0e-5df0-48b9-9779-ac5bca0732e6",
+      "createdAt": "2026-06-13T02:20:43.348Z",
+      "name": "女毛毛",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "2111331a-d6fc-44fe-8ab2-c6796262e12f",
+      "createdAt": "2026-06-13T02:20:57.248Z",
+      "name": "欧欧老公",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": [
+        "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+        "7e330c84-0643-44f3-ab48-a0f8ffd0bc73"
+      ]
+    },
+    {
+      "id": "7f2eef2b-a372-4416-8910-baaedf744557",
+      "createdAt": "2026-06-13T02:21:02.748Z",
+      "name": "大可爱",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "69b3ec97-5288-4b4b-9f09-512cbc299aac",
+      "createdAt": "2026-06-13T02:21:30.665Z",
+      "name": "哈里斯",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "f0cb384a-5973-4cb8-a9f0-6b0d4f98a23e",
+      "createdAt": "2026-06-13T02:33:21.695Z",
+      "name": "飞飞",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "0e1e9d97-b708-4fe2-8325-f4aa7054da94",
+      "createdAt": "2026-06-13T07:41:39.444Z",
+      "name": "99",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "9bbcbde2-9139-4794-8ac3-ee9501ed3592",
+      "createdAt": "2026-06-13T08:42:19.168Z",
+      "name": "布鲁克",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "98ce2835-062b-4ed2-aea3-8ba484aae728",
+      "createdAt": "2026-06-13T08:42:26.050Z",
+      "name": "老严",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "047256d7-a61c-450a-9d00-861c9f9b1c1d",
+      "createdAt": "2026-06-13T16:51:00.039Z",
+      "name": "花卷",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "83821109-d1c4-4f99-bbd6-0610f8a31f98",
+      "createdAt": "2026-06-13T16:51:31.023Z",
+      "name": "uki",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    },
+    {
+      "id": "8adc157e-27f2-4897-a24a-24a25e040f08",
+      "createdAt": "2026-06-13T17:06:05.602Z",
+      "name": "英文老师",
+      "phone": "",
+      "available": true,
+      "notes": "",
+      "attrs": {
+        "牌技": "",
+        "常来时段": "",
+        "备注标签": ""
+      },
+      "conflicts": []
+    }
+  ],
+  "fields": [
+    "牌技",
+    "常来时段",
+    "备注标签"
+  ],
+  "signups": {
+    "2026-06-12": [],
+    "2026-06-13": [
+      "0e1e9d97-b708-4fe2-8325-f4aa7054da94",
+      "9bbcbde2-9139-4794-8ac3-ee9501ed3592",
+      "7f2eef2b-a372-4416-8910-baaedf744557",
+      "047256d7-a61c-450a-9d00-861c9f9b1c1d",
+      "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+      "2111331a-d6fc-44fe-8ab2-c6796262e12f",
+      "8adc157e-27f2-4897-a24a-24a25e040f08",
+      "83821109-d1c4-4f99-bbd6-0610f8a31f98"
+    ]
+  },
+  "registrations": [
+    {
+      "id": "8ef8043d-a507-4eb1-908b-753110b89114",
+      "date": "2026-06-13",
+      "groups": [
+        {
+          "customers": [
+            {
+              "id": "0e1e9d97-b708-4fe2-8325-f4aa7054da94",
+              "name": "99"
+            },
+            {
+              "id": "9bbcbde2-9139-4794-8ac3-ee9501ed3592",
+              "name": "布鲁克"
+            },
+            {
+              "id": "047256d7-a61c-450a-9d00-861c9f9b1c1d",
+              "name": "花卷"
+            },
+            {
+              "id": "09d3bdfe-2679-4cf6-b1e6-2c05433a31ce",
+              "name": "欧欧"
+            }
+          ],
+          "session": "晚间场",
+          "amount": "1430",
+          "room": "777"
+        },
+        {
+          "customers": [
+            {
+              "id": "7f2eef2b-a372-4416-8910-baaedf744557",
+              "name": "大可爱"
+            },
+            {
+              "id": "2111331a-d6fc-44fe-8ab2-c6796262e12f",
+              "name": "欧欧老公"
+            },
+            {
+              "id": "8adc157e-27f2-4897-a24a-24a25e040f08",
+              "name": "英文老师"
+            },
+            {
+              "id": "83821109-d1c4-4f99-bbd6-0610f8a31f98",
+              "name": "uki"
+            }
+          ],
+          "session": "晚间场",
+          "amount": "980",
+          "room": "666"
+        }
+      ],
+      "leftovers": [],
+      "createdAt": "2026-06-13T17:07:24.900Z"
+    }
+  ]
+}

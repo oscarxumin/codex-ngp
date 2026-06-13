@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f3f7fa"/>
+    </linearGradient>
+    <filter id="subtleShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0b3550" flood-opacity=".08"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="44" y="36" width="1192" height="150" rx="24" fill="#ffffff" stroke="#e4eaf0" filter="url(#subtleShadow)"/>
+  <rect x="76" y="63" width="96" height="96" rx="20" fill="#f7fbfe" stroke="#d7e8f2"/>
+  <text x="95" y="120" font-size="34" font-family="Arial" font-weight="800" fill="#168fc9">牌</text>
+  <text x="194" y="92" font-size="30" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="800" fill="#168fc9">新天地棋牌会所</text>
+  <text x="194" y="137" font-size="48" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#111827">新天地棋牌组队系统</text>
+  <text x="194" y="168" font-size="20" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="700" fill="#68717d">客户总库、每日报名、四人组队、消费登记</text>
+
+  <text x="52" y="245" font-size="28" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#111827">方案 C：高级圆润风</text>
+  <text x="52" y="282" font-size="18" font-family="Microsoft YaHei, PingFang SC, Arial" fill="#68717d">克制、耐看、专业，圆角统一但不太卡通，适合长期使用。</text>
+
+  <rect x="52" y="325" width="250" height="72" rx="18" fill="#1d9bd7" filter="url(#subtleShadow)"/>
+  <text x="177" y="370" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#ffffff">客户总库</text>
+  <rect x="330" y="325" width="270" height="72" rx="18" fill="#ffffff" stroke="#dbe3ea" stroke-width="2"/>
+  <text x="465" y="370" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#172333">今日报名名单</text>
+  <rect x="628" y="325" width="220" height="72" rx="18" fill="#ffffff" stroke="#dbe3ea" stroke-width="2"/>
+  <text x="738" y="370" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#172333">自动组队</text>
+  <rect x="876" y="325" width="290" height="72" rx="18" fill="#ffffff" stroke="#dbe3ea" stroke-width="2"/>
+  <text x="1021" y="370" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#172333">每日客户登记</text>
+
+  <rect x="52" y="455" width="440" height="70" rx="16" fill="#ffffff" stroke="#dbe3ea" stroke-width="2"/>
+  <text x="82" y="499" font-size="26" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="800" fill="#9aa3ad">搜索姓名、电话、属性</text>
+  <rect x="520" y="455" width="280" height="70" rx="16" fill="#000000"/>
+  <text x="660" y="499" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#ffffff">加入当天报名名单</text>
+  <rect x="828" y="455" width="180" height="70" rx="16" fill="#1d9bd7"/>
+  <text x="918" y="499" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#ffffff">新增客户</text>
+  <rect x="1036" y="455" width="180" height="70" rx="16" fill="#ffffff" stroke="#dbe3ea" stroke-width="2"/>
+  <text x="1126" y="499" text-anchor="middle" font-size="27" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="900" fill="#172333">编辑客户</text>
+
+  <rect x="52" y="575" width="1164" height="86" rx="20" fill="#ffffff" stroke="#e2e8ef"/>
+  <circle cx="96" cy="618" r="12" fill="#1d9bd7"/>
+  <text x="130" y="628" font-size="26" font-family="Microsoft YaHei, PingFang SC, Arial" font-weight="800" fill="#172333">客户行示例：专业感更强，圆润但不过度可爱，最稳妥。</text>
+</svg>
