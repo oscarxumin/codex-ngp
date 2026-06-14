@@ -944,6 +944,21 @@ function normalizeData(input) {
   const fields = Array.isArray(source.fields) ? source.fields : ["牌技", "常来时段", "备注标签"];
   const signups = source.signups && typeof source.signups === "object" && !Array.isArray(source.signups) ? source.signups : {};
   const registrations = Array.isArray(source.registrations) ? source.registrations : [];
+  const normalizeCustomerRef = customer => ({
+    id: customer?.id || uid(),
+    name: String(customer?.name || "").trim()
+  });
+  const normalizeGroup = group => {
+    const customers = Array.isArray(group)
+      ? group
+      : (Array.isArray(group?.customers) ? group.customers : []);
+    return {
+      customers: customers.map(normalizeCustomerRef).filter(customer => customer.name),
+      session: ["下午场", "晚间场", "通宵场"].includes(group?.session) ? group.session : "下午场",
+      amount: group?.amount || "",
+      room: group?.room || "02"
+    };
+  };
   return {
     ...source,
     customers: customers.map(customer => ({
@@ -958,7 +973,13 @@ function normalizeData(input) {
     })).filter(customer => customer.name),
     fields: fields.map(field => String(field || "").trim()).filter(Boolean),
     signups: Object.fromEntries(Object.entries(signups).map(([day, ids]) => [day, Array.isArray(ids) ? ids : []])),
-    registrations
+    registrations: registrations.map(record => ({
+      id: record?.id || uid(),
+      date: record?.date || today(),
+      groups: Array.isArray(record?.groups) ? record.groups.map(normalizeGroup).filter(group => group.customers.length) : [],
+      leftovers: Array.isArray(record?.leftovers) ? record.leftovers.map(normalizeCustomerRef).filter(customer => customer.name) : [],
+      createdAt: record?.createdAt || new Date().toISOString()
+    })).filter(record => record.groups.length || record.leftovers.length)
   };
 }
 function save() { localStorage.setItem(KEY, JSON.stringify(data)); render(); }

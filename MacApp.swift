@@ -142,6 +142,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
 }
 
 final class ReportExporter: NSObject, WKNavigationDelegate {
+    private static let maxPNGHeight: CGFloat = 20000
+    private static let maxPDFHeight: CGFloat = 60000
     private let type: String
     private let filename: String
     private let html: String
@@ -188,7 +190,16 @@ final class ReportExporter: NSObject, WKNavigationDelegate {
             } else {
                 rawHeight = 1400
             }
-            let height = min(max(800, rawHeight), 20000)
+            let maxHeight = self.type == "pdf" ? Self.maxPDFHeight : Self.maxPNGHeight
+            if self.type != "pdf" && rawHeight > Self.maxPNGHeight {
+                self.completion(self, .failure(NSError(
+                    domain: "ReportExporter",
+                    code: 2,
+                    userInfo: [NSLocalizedDescriptionKey: "报表内容太长，PNG 图片可能被截断。请减少选择日期，或改用 PDF 导出。"]
+                )))
+                return
+            }
+            let height = min(max(800, rawHeight), maxHeight)
             self.webView.setFrameSize(NSSize(width: 980, height: height))
             if self.type == "pdf" {
                 self.exportPDF(height: height)
