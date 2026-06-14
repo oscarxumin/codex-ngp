@@ -529,6 +529,7 @@
       padding: 10px;
       background: #fff8fc;
       cursor: pointer;
+      position: relative;
     }
     .registration-table:hover {
       border-color: var(--accent);
@@ -537,6 +538,19 @@
     .registration-table strong {
       display: block;
       margin-bottom: 6px;
+      padding-right: 54px;
+    }
+    .table-delete-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      min-width: 0;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: var(--danger);
+      font-size: 12px;
+      line-height: 1.2;
+      box-shadow: none;
     }
     .data-grid {
       display: grid;
@@ -1148,6 +1162,7 @@ function renderRegistrations() {
         ${records.map(record => (record.groups || []).map((group, index) => {
           tableNumber += 1;
           return `<div class="registration-table" data-table-expense="${record.id}:${index}">
+          <button type="button" class="table-delete-button" data-delete-table="${record.id}:${index}" title="删除这一桌">删除</button>
           <strong>第 ${tableNumber} 桌</strong>
           <div class="registration-meta">
             场次：${escapeHtml(group.session || "未填")}　
@@ -1183,6 +1198,22 @@ function renderRegistrations() {
       openTableExpense(recordId, Number(tableIndexText));
     };
   });
+  list.querySelectorAll("[data-delete-table]").forEach(button => {
+    button.onclick = event => {
+      event.preventDefault();
+      event.stopPropagation();
+      const [recordId, tableIndexText] = button.dataset.deleteTable.split(":");
+      deleteRegistrationTable(recordId, Number(tableIndexText));
+    };
+  });
+}
+function deleteRegistrationTable(recordId, tableIndex) {
+  const record = data.registrations.find(item => item.id === recordId);
+  if (!record || !Array.isArray(record.groups) || !record.groups[tableIndex]) return;
+  record.groups.splice(tableIndex, 1);
+  data.registrations = data.registrations.filter(item => (item.groups || []).length || (item.leftovers || []).length);
+  localStorage.setItem(KEY, JSON.stringify(data));
+  renderRegistrations();
 }
 function openTableExpense(recordId, tableIndex) {
   const record = data.registrations.find(item => item.id === recordId);
@@ -2201,10 +2232,18 @@ function clearTeams() {
   document.querySelector("#teamOutput").innerHTML = "请选择日期并点击“自动四人组队”或“手动四人组队”。";
 }
 function clearRegistrations() {
+  if (window.webkit?.messageHandlers?.secureAction) {
+    window.webkit.messageHandlers.secureAction.postMessage({ action: "clearRegistrations" });
+  } else {
+    alert("请在 Mac App 内使用清空登记记录功能。");
+  }
+}
+window.__clearRegistrationsAfterAuth = function() {
   data.registrations = [];
   localStorage.setItem(KEY, JSON.stringify(data));
   renderRegistrations();
-}
+  alert("登记记录已清空。");
+};
 
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => setView(b.dataset.view));
 document.querySelector("#search").oninput = renderCustomers;

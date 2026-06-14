@@ -12,6 +12,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
         let store = WKWebsiteDataStore.default()
         config.websiteDataStore = store
         config.userContentController.add(self, name: "exportFile")
+        config.userContentController.add(self, name: "secureAction")
 
         webView = WKWebView(frame: .zero, configuration: config)
         webView.setValue(false, forKey: "drawsBackground")
@@ -64,6 +65,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == "secureAction" {
+            handleSecureAction(message)
+            return
+        }
+
         guard message.name == "exportFile",
               let payload = message.body as? [String: Any],
               let type = payload["type"] as? String,
@@ -100,6 +106,42 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKScriptMessageHandler
             exporter.start()
         } else {
             showAlert("导出失败", "没有收到报表内容。")
+        }
+    }
+
+    private func handleSecureAction(_ message: WKScriptMessage) {
+        guard let payload = message.body as? [String: Any],
+              let action = payload["action"] as? String else {
+            showAlert("操作失败", "没有收到有效的安全操作。")
+            return
+        }
+
+        authenticateForSecureAction(reason: "确认执行高风险操作") { [weak self] success, errorMessage in
+            DispatchQueue.main.async {
+                guard success else {
+                    self?.showAlert("验证失败", errorMessage ?? "未通过系统验证，操作已取消。")
+                    return
+                }
+
+                if action == "clearRegistrations" {
+                    self?.webView.evaluateJavaScript("window.__clearRegistrationsAfterAuth && window.__clearRegistrationsAfterAuth()")
+                } else {
+                    self?.showAlert("操作失败", "未知的安全操作。")
+                }
+            }
+        }
+    }
+
+    private func authenticateForSecureAction(reason: String, completion: @escaping (Bool, String?) -> Void) {
+        let context = LAContext()
+        context.localizedReason = reason
+        var error: NSError?
+        let biometricPolicy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics
+        let fallbackPolicy: LAPolicy = .deviceOwnerAuthentication
+        let policy = context.canEvaluatePolicy(biometricPolicy, error: &error) ? biometricPolicy : fallbackPolicy
+
+        context.evaluatePolicy(policy, localizedReason: reason) { success, authError in
+            completion(success, authError?.localizedDescription)
         }
     }
 
