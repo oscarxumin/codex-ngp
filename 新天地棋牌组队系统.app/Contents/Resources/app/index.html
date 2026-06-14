@@ -805,30 +805,15 @@
         </div>
         <div class="panel">
           <h2>数据导入导出</h2>
-          <div class="data-grid">
-            <div class="data-box">
-              <h3>客户数据</h3>
-              <div class="data-actions">
-                <button class="primary" id="exportCustomersJson">导出客户JSON</button>
-                <button id="exportCustomersCsv">导出客户CSV</button>
-                <button id="importCustomersBtn">导入客户JSON/CSV</button>
-              </div>
-            </div>
-            <div class="data-box">
-              <h3>每日汇总数据</h3>
-              <div class="data-actions">
-                <button class="primary" id="exportDailyCsv">导出每日汇总CSV</button>
-              </div>
-            </div>
-            <div class="data-box">
-              <h3>完整备份</h3>
-              <div class="data-actions">
-                <button class="primary" id="exportAllData">导出完整备份JSON</button>
-                <button id="importAllDataBtn">导入完整备份JSON</button>
-              </div>
+          <div class="data-box">
+            <h3>一键备份全部数据</h3>
+            <p class="muted">包含客户总库、今日报名、组队方案、每日登记、消费汇总等全部数据。</p>
+            <div class="data-actions">
+              <button class="primary" id="exportAllData">一键导出全部数据</button>
+              <button id="importAllDataBtn">一键导入全部数据</button>
             </div>
           </div>
-          <input id="importFileInput" type="file" accept=".json,.csv,text/csv,application/json" style="display:none">
+          <input id="importFileInput" type="file" accept=".json,application/json" style="display:none">
         </div>
       </div>
     </section>
@@ -1347,7 +1332,7 @@ function nativeSaveBackupText(filename, text) {
 }
 function backupImportName(mode, originalName) {
   const safeName = String(originalName || "导入文件").replace(/[\\/:*?"<>|]/g, "-");
-  const prefix = mode === "all" ? "导入完整备份" : "导入客户数据";
+  const prefix = "导入全部数据";
   return `${prefix}-${today()}-${safeName}`;
 }
 function csvCell(value) {
@@ -1420,7 +1405,7 @@ function exportDailyCsv() {
   nativeSaveBackupText(`每日汇总数据-${today()}.csv`, [csvLine(headers), ...rows.map(csvLine)].join("\n"));
 }
 function exportAllData() {
-  nativeSaveBackupText(`新天地棋牌组队系统完整备份-${today()}.json`, JSON.stringify(data, null, 2));
+  nativeSaveBackupText(`新天地棋牌组队系统全部数据-${today()}.json`, JSON.stringify(normalizeData(data), null, 2));
 }
 function importCustomersFromJson(text) {
   const imported = JSON.parse(text);
@@ -1472,19 +1457,17 @@ function openImport(mode) {
 }
 function handleImportFile(file) {
   if (!file) return;
+  if (!file.name.toLowerCase().endsWith(".json")) {
+    alert("请选择一键导出的 JSON 备份文件。");
+    return;
+  }
   const reader = new FileReader();
   reader.onload = () => {
     try {
       const text = String(reader.result || "");
-      if (importMode === "all") {
-        importAllData(text);
-      } else if (file.name.toLowerCase().endsWith(".csv")) {
-        importCustomersFromCsv(text);
-      } else {
-        importCustomersFromJson(text);
-      }
+      importAllData(text);
       nativeSaveBackupText(backupImportName(importMode, file.name), text);
-      alert("导入成功。");
+      alert("全部数据导入成功。");
     } catch (error) {
       alert(`导入失败：${error.message}`);
     }
@@ -2215,11 +2198,7 @@ document.querySelector("#makeTeams").onclick = makeTeams;
 document.querySelector("#manualTeams").onclick = renderManualTeams;
 document.querySelector("#clearTeams").onclick = clearTeams;
 document.querySelector("#clearRegistrations").onclick = clearRegistrations;
-document.querySelector("#exportCustomersJson").onclick = exportCustomersJson;
-document.querySelector("#exportCustomersCsv").onclick = exportCustomersCsv;
-document.querySelector("#exportDailyCsv").onclick = exportDailyCsv;
 document.querySelector("#exportAllData").onclick = exportAllData;
-document.querySelector("#importCustomersBtn").onclick = () => openImport("customers");
 document.querySelector("#importAllDataBtn").onclick = () => openImport("all");
 document.querySelector("#importFileInput").onchange = event => handleImportFile(event.target.files?.[0]);
 document.querySelector("#lightModeBtn").onclick = () => applyTheme("light");
