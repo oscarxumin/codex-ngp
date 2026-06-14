@@ -1118,37 +1118,60 @@ function renderRegistrations() {
     list.innerHTML = `<div class="empty">暂无登记记录。请先在“自动组队”里选择一个方案。</div>`;
     return;
   }
-  list.innerHTML = data.registrations.map(record => `
-    <div class="registration-card" data-registration="${record.id}">
+  const grouped = Object.entries(data.registrations.reduce((groups, record) => {
+    const day = record.date || today();
+    groups[day] ||= [];
+    groups[day].push(record);
+    return groups;
+  }, {})).sort(([a], [b]) => b.localeCompare(a));
+
+  list.innerHTML = grouped.map(([day, records]) => {
+    let tableNumber = 0;
+    const leftovers = [];
+    records.forEach(record => {
+      (record.leftovers || []).forEach(customer => {
+        if (!leftovers.some(item => (item.id && item.id === customer.id) || item.name === customer.name)) leftovers.push(customer);
+      });
+    });
+    return `
+    <div class="registration-card" data-date-group="${escapeHtml(day)}">
       <div class="registration-fields">
         <label>日期
-          <input type="date" data-reg-field="date" value="${escapeHtml(record.date || today())}">
+          <input type="date" data-date-field value="${escapeHtml(day)}">
+        </label>
+        <label>桌数
+          <input value="${records.reduce((count, record) => count + (record.groups || []).length, 0)} 桌" disabled>
         </label>
       </div>
       <div class="registration-plan">
-        ${record.groups.map((group, index) => `<div class="registration-table" data-table-expense="${record.id}:${index}">
-          <strong>第 ${index + 1} 桌</strong>
+        ${records.map(record => (record.groups || []).map((group, index) => {
+          tableNumber += 1;
+          return `<div class="registration-table" data-table-expense="${record.id}:${index}">
+          <strong>第 ${tableNumber} 桌</strong>
           <div class="registration-meta">
             场次：${escapeHtml(group.session || "未填")}　
             金额：${escapeHtml(group.amount || "未填")}　
             房间：${escapeHtml(group.room || "未填")}
           </div>
           <div>${tableCustomers(group).map(c => `<span class="pill">${escapeHtml(c.name)}</span>`).join("")}</div>
-        </div>`).join("")}
-        ${record.leftovers?.length ? `<div class="registration-table">
-          <strong>淘汰/轮空</strong>
-          <div>${record.leftovers.map(c => `<span class="pill leftover">${escapeHtml(c.name)}</span>`).join("")}</div>
+        </div>`;
+        }).join("")).join("")}
+        ${leftovers.length ? `<div class="registration-table">
+          <strong>当日淘汰/轮空</strong>
+          <div>${leftovers.map(c => `<span class="pill leftover">${escapeHtml(c.name)}</span>`).join("")}</div>
         </div>` : ""}
       </div>
     </div>
-  `).join("");
+  `;
+  }).join("");
 
-  list.querySelectorAll("[data-reg-field]").forEach(input => {
+  list.querySelectorAll("[data-date-field]").forEach(input => {
     input.onchange = () => {
-      const card = input.closest("[data-registration]");
-      const record = data.registrations.find(item => item.id === card.dataset.registration);
-      if (!record) return;
-      record[input.dataset.regField] = input.value;
+      const card = input.closest("[data-date-group]");
+      const oldDay = card.dataset.dateGroup;
+      data.registrations.forEach(record => {
+        if ((record.date || today()) === oldDay) record.date = input.value;
+      });
       localStorage.setItem(KEY, JSON.stringify(data));
       renderRegistrations();
     };
