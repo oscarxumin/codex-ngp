@@ -897,6 +897,7 @@
 <script>
 const KEY = "codex-mahjong-team-data-v2";
 const THEME_KEY = "codex-mahjong-team-theme";
+const FULL_BACKUP_TYPE = "xintiandi-full-backup";
 const MAX_AUTO_PLANS = 300;
 const today = () => {
   const now = new Date();
@@ -1428,7 +1429,13 @@ function exportDailyCsv() {
   nativeSaveBackupText(`每日汇总数据-${today()}.csv`, [csvLine(headers), ...rows.map(csvLine)].join("\n"));
 }
 function exportAllData() {
-  nativeSaveBackupText(`新天地棋牌组队系统全部数据-${today()}.json`, JSON.stringify(normalizeData(data), null, 2));
+  const backup = {
+    backupType: FULL_BACKUP_TYPE,
+    appName: "新天地棋牌组队系统",
+    exportedAt: new Date().toISOString(),
+    ...normalizeData(data)
+  };
+  nativeSaveBackupText(`新天地棋牌组队系统全部数据-${today()}.json`, JSON.stringify(backup, null, 2));
 }
 function importCustomersFromJson(text) {
   const imported = JSON.parse(text);
@@ -1466,8 +1473,22 @@ function importCustomersFromCsv(text) {
   }).filter(customer => customer.name.trim());
   save();
 }
-function importAllData(text) {
-  const imported = normalizeData(JSON.parse(text));
+function looksLikeLegacyFullBackup(raw) {
+  return raw
+    && typeof raw === "object"
+    && Array.isArray(raw.customers)
+    && raw.signups
+    && typeof raw.signups === "object"
+    && Array.isArray(raw.registrations);
+}
+function importAllData(text, filename = "") {
+  const raw = JSON.parse(text);
+  const isNewBackup = raw?.backupType === FULL_BACKUP_TYPE;
+  const isLegacyBackup = looksLikeLegacyFullBackup(raw) && /全部数据|完整备份/.test(filename);
+  if (!isNewBackup && !isLegacyBackup) {
+    throw new Error("这不是一键导出的全部数据备份文件。请重新选择“新天地棋牌组队系统全部数据”备份。");
+  }
+  const imported = normalizeData(raw);
   Object.keys(data).forEach(key => delete data[key]);
   Object.assign(data, imported);
   save();
@@ -1488,7 +1509,7 @@ function handleImportFile(file) {
   reader.onload = () => {
     try {
       const text = String(reader.result || "");
-      importAllData(text);
+      importAllData(text, file.name);
       nativeSaveBackupText(backupImportName(importMode, file.name), text);
       alert("全部数据导入成功。");
     } catch (error) {
